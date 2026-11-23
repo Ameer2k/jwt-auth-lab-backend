@@ -15,9 +15,7 @@ async function getEntries(req, res) {
 
 async function getMyEntries(req, res) {
   try {
-    const entries = await Entry.find({ owner: req.user._id }).sort({
-      createdAt: -1,
-    });
+    const entries = await Entry.find({ owner: req.user._id });
     return res.status(200).json(entries);
   } catch (error) {
     console.error(error);
