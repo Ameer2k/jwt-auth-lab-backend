@@ -3,9 +3,7 @@ const Entry = require("../models/Entry");
 
 async function getEntries(req, res) {
   try {
-    const entries = await Entry.find({ isPublic: true }).sort({
-      createdAt: -1,
-    });
+    const entries = await Entry.find({ isPublic: true });
     return res.status(200).json(entries);
   } catch (error) {
     console.error(error);
